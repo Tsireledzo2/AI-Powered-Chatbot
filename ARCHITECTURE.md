@@ -11,3 +11,4 @@ The feasibility is supported by utilizing modern tools and libraries such as `bu
 
 ## C4 Diagrams
 
+![image](https://github.com/user-attachments/assets/814a7fb7-62ce-4f22-97f1-443676e1b19c)
