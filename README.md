@@ -7,3 +7,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [SPECIFICATION.md](./SPECIFICATION.md)
 - [ARCHITECTURE.md](./ARCHITECTURE.md)
 - [STAKEHOLDERS.md](./STAKEHOLDERS.md)
+- [SYSTEM_REQUIREMENTS.md](./SYSTEM_REQUIREMENTS.md)
+- [Reflection.md](./Reflection.md)
