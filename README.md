@@ -12,4 +12,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Use Case Specifications.md](./Use_Case_Specifications.md)
 - [Test Case Development.md](./Test_Case_Development.md)
 - [Reflection: Challenges in Translating Requirements to Use Cases and Tests.md](./Reflection_Challenges_in_Translating_Requirements_to_Use_Cases_and_Tests.md)
+- [User Stories.md](./User_Stories.md)
 
