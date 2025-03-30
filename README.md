@@ -15,6 +15,6 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [User Stories.md](./User_Stories.md)
 - [Reflaction: Prioritization, estimation.md](./ReflectionChallenges_in_prioritization_estimation.md)
 - [Agile documentation.md](./Documentation_&_Clarity.md)
-- [Template_Analysis_and_Selection.md](./Template_Analysis_and_Selection.md)
+- [template_analysis.md](./Template_Analysis_and_Selection.md)
 - [Kanban_Creation.md](./Kanban_Creation.md)
 
