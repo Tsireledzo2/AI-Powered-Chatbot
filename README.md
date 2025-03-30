@@ -18,4 +18,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [template_analysis.md](./Template_Analysis_and_Selection.md)
 - [Kanban_Creation.md](./Kanban_Creation.md)
 - [kanban_explanation.md](./kanban_explanation.md)
+- [Reflection_Discuss_challenges_in_selecting_and_customizing_the_template.md](./Reflection_Discuss_challenges_in_selecting_and_customizing_the_template.md)
 
