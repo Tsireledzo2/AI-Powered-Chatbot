@@ -17,4 +17,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Agile documentation.md](./Documentation_&_Clarity.md)
 - [template_analysis.md](./Template_Analysis_and_Selection.md)
 - [Kanban_Creation.md](./Kanban_Creation.md)
+- [kanban_explanation.md](./kanban_explanation.md)
 
