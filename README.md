@@ -21,4 +21,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Reflection_Discuss_challenges_in_selecting_and_customizing_the_template.md](./Reflection_Discuss_challenges_in_selecting_and_customizing_the_template.md)
 - [State _transition_Diagrams.md](./State_transition_Diagrams.md)
 - [Activity_Workflow_Modeling.md](./Activity_Workflow_Modeling.md)
+- [Integration_with_Prior_Work.md](./Integration_with_Prior_Work.md)
 
