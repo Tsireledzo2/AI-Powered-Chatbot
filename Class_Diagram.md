@@ -1,6 +1,13 @@
 # Class Diagram 
 ![mermaid-diagram-2025-04-14-001533](https://github.com/user-attachments/assets/c44b80e3-fbcc-4bac-ac10-56821a5a4f17)
 
+# Key Design Decisions:
+
+- Modeled NLPModel as a separate class to support modularity and future enhancements (e.g., model switching).
+
+- Separated Intent and ResponsePattern for better flexibility in training and response customization.
+
+- ChatbotSession acts as a central hub for User and Chatbot interaction history.
 
 #  Class Diagram Mermaid code
 ```classDiagram
