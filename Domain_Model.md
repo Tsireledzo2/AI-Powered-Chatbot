@@ -1,9 +1,0 @@
-| **Entity**         | **Attributes**                                                                 | **Methods**                                | **Relationships**                                      |
-|--------------------|--------------------------------------------------------------------------------|---------------------------------------------|--------------------------------------------------------|
-| `User`             | `userId: UUID`, `name: String`, `role: Enum`                                   | `sendMessage()`, `receiveMessage()`         | Interacts with `ChatbotSession`                       |
-| `Chatbot`          | `botId: UUID`, `name: String`, `version: String`                               | `generateResponse()`, `logMessage()`        | Runs `NLPModel`, maintains `ChatbotSession`           |
-| `NLPModel`         | `modelType: String`, `version: String`                                         | `trainModel()`, `predictIntent()`           | Used by `Chatbot`                                     |
-| `ChatbotSession`   | `sessionId: UUID`, `startTime: DateTime`, `endTime: DateTime`                  | `startSession()`, `endSession()`            | Logs `Message`, connects `User` and `Chatbot`         |
-| `Message`          | `messageId: UUID`, `content: String`, `timestamp: DateTime`, `senderType: Enum`| `editMessage()`, `deleteMessage()`          | Exchanged in `ChatbotSession`                         |
-| `Intent`           | `intentId: UUID`, `name: String`, `confidence: Float`                          | `addResponsePattern()`, `updateIntent()`    | Detected by `NLPModel`, maps to `ResponsePattern`     |
-| `ResponsePattern`  | `patternId: UUID`, `text: String`                                              | `generateResponse()`                        | Linked to `Intent`                                    |
