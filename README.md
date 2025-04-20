@@ -24,4 +24,5 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Integration_with_Prior_Work.md](./Integration_with_Prior_Work.md)
 - [Domain_Model_and_BusinessRules.md](./Domain_Model_and_BusinessRules.md)
 - [Reflection_Assignment9.md](./Reflection_Assignment9.md)
+- [CoverageReport.md](./CoverageReport.md)
 
