@@ -4,10 +4,10 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
+ChatbotApplication/.idea/modules.xml
+ChatbotApplication/.idea/jarRepositories.xml
+ChatbotApplication/.idea/compiler.xml
+ChatbotApplication/.idea/libraries/
 *.iws
 *.iml
 *.ipr
