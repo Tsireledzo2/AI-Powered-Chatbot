@@ -26,3 +26,12 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Reflection_Assignment9.md](./Reflection_Assignment9.md)
 - [CoverageReport.md](./CoverageReport.md)
 
+## Justification of  generic repository interface
+# Repositories Design
+
+We used a generic `Repository<T, ID>` interface to define standard CRUD operations (Create, Read, Update, Delete).  
+This avoids duplication across different entity repositories , and promotes code reuse and consistency. 
+
+Each entity-specific repository extends the generic repository, specifying the entity type and its ID type.
+
+
