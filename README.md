@@ -47,11 +47,25 @@ Instead of hard-coding the storage backend, our services can now request a repos
 
 ## Example Usage
 
+`java`
+`UserRepository userRepo = RepositoryFactory.getUserRepository("MEMORY");`
+
+
+`We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.`
+
+## Future Proofing
+
+The system is designed so that new storage options (like databases or filesystem storage) can be added easily.
+
+- All repositories implement the generic `Repository<T, ID>` interface.
+- We added stub classes like `DatabaseUserRepository`, which can later connect to a real database (e.g., MySQL, PostgreSQL).
+- The `RepositoryFactory` allows selecting the storage backend at runtime.
+
+### Example
+
 ```java
-UserRepository userRepo = RepositoryFactory.getUserRepository("MEMORY");
+UserRepository repo = RepositoryFactory.getUserRepository("DATABASE");
 
-
-We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.
 
 
 
