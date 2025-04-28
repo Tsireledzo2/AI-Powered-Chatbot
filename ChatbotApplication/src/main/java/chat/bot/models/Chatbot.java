@@ -16,6 +16,18 @@ public class Chatbot {
         this.version = version;
     }
 
+    public UUID getBotId() {
+        return botId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
     public String generateResponse(String input) {
         return "Default bot response to: " + input;
     }

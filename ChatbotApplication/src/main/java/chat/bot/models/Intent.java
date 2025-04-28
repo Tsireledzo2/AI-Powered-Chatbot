@@ -19,6 +19,22 @@ public class Intent {
         this.confidence = confidence;
     }
 
+    public UUID getIntentId() {
+        return intentId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public float getConfidence() {
+        return confidence;
+    }
+
+    public List<ResponsePattern> getPatterns() {
+        return patterns;
+    }
+
     public void addResponsePattern(ResponsePattern pattern) {
         patterns.add(pattern);
     }
@@ -33,5 +49,40 @@ public class Intent {
             return patterns.get(0).generateResponse();
         }
         return "I'm not sure how to respond to that.";
+    }
+
+    public class IntentBuilder {
+        private UUID intentId;
+        private String name;
+        private float confidence;
+        private List<ResponsePattern> patterns = new ArrayList<>();
+
+
+
+        public IntentBuilder(Intent intent) {
+            this.intentId = UUID.randomUUID();
+            this.name = intent.name;
+            this.confidence = intent.confidence;
+        }
+
+        public void setIntentId(UUID intentId) {
+            this.intentId = intentId;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setConfidence(float confidence) {
+            this.confidence = confidence;
+        }
+
+        public void setPatterns(List<ResponsePattern> patterns) {
+            this.patterns = patterns;
+        }
+
+        public Intent build() {
+            return new Intent();
+        }
     }
 }
