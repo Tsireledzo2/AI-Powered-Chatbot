@@ -26,3 +26,46 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Reflection_Assignment9.md](./Reflection_Assignment9.md)
 - [CoverageReport.md](./CoverageReport.md)
 
+# Justification of  generic repository interface
+## Why use a generic Repository interface?
+
+We used a generic `Repository<T, ID>` interface to define standard CRUD operations for all entities like `User`, `Intent`, `Chatbot`, etc.  
+This avoids code duplication, promotes reusability, and ensures consistency across the project.
+
+Entity-specific repositories (such as `UserRepository`, `IntentRepository`) extend the generic interface by specifying the entity type and its ID type (`UUID`).
+
+# Repository Abstraction Mechanism
+
+We chose the **Factory Pattern** to decouple the repository layer from specific storage mechanisms.
+
+Instead of hard-coding the storage backend, our services can now request a repository from the `RepositoryFactory`, specifying the desired storage type (e.g., "MEMORY", "DATABASE").
+
+## Why Factory over Dependency Injection (DI)?
+- Factory keeps the project lightweight without needing a DI framework like Spring.
+- We can easily extend the factory in the future to support new backends (e.g., `PostgresUserRepository` or `MongoDBChatbotSessionRepository`).
+- It keeps construction logic centralized in one place, avoiding duplicate `new` calls across services.
+
+## Example Usage
+
+`java`
+`UserRepository userRepo = RepositoryFactory.getUserRepository("MEMORY");`
+
+
+`We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.`
+
+## Future Proofing
+
+The system is designed so that new storage options (like databases or filesystem storage) can be added easily.
+
+- All repositories implement the generic `Repository<T, ID>` interface.
+- We added stub classes like `DatabaseUserRepository`, which can later connect to a real database (e.g., MySQL, PostgreSQL).
+- The `RepositoryFactory` allows selecting the storage backend at runtime.
+
+### Example
+
+```java
+UserRepository repo = RepositoryFactory.getUserRepository("DATABASE");
+
+
+
+
