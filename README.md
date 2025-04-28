@@ -26,12 +26,15 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Reflection_Assignment9.md](./Reflection_Assignment9.md)
 - [CoverageReport.md](./CoverageReport.md)
 
-## Justification of  generic repository interface
-# Repositories Design
+# Justification of  generic repository interface
+## Why use a generic Repository interface?
 
-We used a generic `Repository<T, ID>` interface to define standard CRUD operations (Create, Read, Update, Delete).  
-This avoids duplication across different entity repositories , and promotes code reuse and consistency. 
+We used a generic `Repository<T, ID>` interface to define standard CRUD operations for all entities like `User`, `Intent`, `Chatbot`, etc.  
+This avoids code duplication, promotes reusability, and ensures consistency across the project.
 
-Each entity-specific repository extends the generic repository, specifying the entity type and its ID type.
+Entity-specific repositories (such as `UserRepository`, `IntentRepository`) extend the generic interface by specifying the entity type and its ID type (`UUID`).
+
+We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.
+
 
 
