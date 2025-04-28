@@ -34,6 +34,23 @@ This avoids code duplication, promotes reusability, and ensures consistency acro
 
 Entity-specific repositories (such as `UserRepository`, `IntentRepository`) extend the generic interface by specifying the entity type and its ID type (`UUID`).
 
+# Repository Abstraction Mechanism
+
+We chose the **Factory Pattern** to decouple the repository layer from specific storage mechanisms.
+
+Instead of hard-coding the storage backend, our services can now request a repository from the `RepositoryFactory`, specifying the desired storage type (e.g., "MEMORY", "DATABASE").
+
+## Why Factory over Dependency Injection (DI)?
+- Factory keeps the project lightweight without needing a DI framework like Spring.
+- We can easily extend the factory in the future to support new backends (e.g., `PostgresUserRepository` or `MongoDBChatbotSessionRepository`).
+- It keeps construction logic centralized in one place, avoiding duplicate `new` calls across services.
+
+## Example Usage
+
+```java
+UserRepository userRepo = RepositoryFactory.getUserRepository("MEMORY");
+
+
 We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.
 
 
