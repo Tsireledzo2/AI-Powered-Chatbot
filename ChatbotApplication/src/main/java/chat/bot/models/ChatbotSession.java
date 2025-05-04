@@ -1,15 +1,21 @@
 package chat.bot.models;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.*;
-
+@Entity
 public class ChatbotSession {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID sessionId = UUID.randomUUID();
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private List<Message> messages = new ArrayList<>();
 
-    public ChatbotSession( LocalDateTime startTime, LocalDateTime endTime, List<Message> messages) {
+    @OneToMany(mappedBy = "messageId", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Messages> messages = new ArrayList<>();
+
+    public ChatbotSession( LocalDateTime startTime, LocalDateTime endTime, List<Messages> messages) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.messages = messages;
@@ -30,7 +36,7 @@ public class ChatbotSession {
         return endTime;
     }
 
-    public List<Message> getMessages() {
+    public List<Messages> getMessages() {
         return messages;
     }
 
@@ -42,15 +48,15 @@ public class ChatbotSession {
         this.endTime = LocalDateTime.now();
     }
 
-    public void logMessage(Message message) {
-        messages.add(message);
+    public void logMessage(Messages messages) {
+        this.messages.add(messages);
     }
 
     public class ChatbotSessionBuilder {
         private UUID sessionId = UUID.randomUUID();
         private LocalDateTime startTime;
         private LocalDateTime endTime;
-        private List<Message> messages = new ArrayList<>();
+        private List<Messages> messages = new ArrayList<>();
 
         public ChatbotSessionBuilder(ChatbotSession chatbotSession){
             this.startTime = chatbotSession.startTime;
@@ -70,7 +76,7 @@ public class ChatbotSession {
             this.endTime = endTime;
         }
 
-        public void setMessages(List<Message> messages) {
+        public void setMessages(List<Messages> messages) {
             this.messages = messages;
         }
 

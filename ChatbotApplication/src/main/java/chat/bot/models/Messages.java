@@ -1,20 +1,26 @@
 package chat.bot.models;
 
 import chat.bot.enums.SenderType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-class Message {
+@Entity
+public class Messages {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID messageId;
     private String content;
     private LocalDateTime timestamp;
     private SenderType senderType;
 
-    public Message() {
+    public Messages() {
     }
 
-    public Message(String content, SenderType senderType) {
+    public Messages(String content, SenderType senderType) {
         this.messageId = UUID.randomUUID();
         this.content = content;
         this.timestamp = LocalDateTime.now();
@@ -51,11 +57,11 @@ class Message {
         private LocalDateTime timestamp;
         private SenderType senderType;
 
-        public MessageBuilder(Message message) {
+        public MessageBuilder(Messages messages) {
             this.messageId = UUID.randomUUID();
-            this.content = message.content;
-            this.timestamp = message.timestamp;
-            this.senderType = message.senderType;
+            this.content = messages.content;
+            this.timestamp = messages.timestamp;
+            this.senderType = messages.senderType;
         }
 
         public void setMessageId(UUID messageId) {
@@ -74,8 +80,8 @@ class Message {
             this.senderType = senderType;
         }
 
-        public Message build(){
-            return new Message();
+        public Messages build(){
+            return new Messages();
         }
     }
 }

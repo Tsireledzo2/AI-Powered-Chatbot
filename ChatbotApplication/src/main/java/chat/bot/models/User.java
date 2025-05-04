@@ -3,6 +3,8 @@ package chat.bot.models;
 import chat.bot.enums.Role;
 import chat.bot.enums.SenderType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.*;
@@ -11,6 +13,7 @@ import java.util.*;
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID userId;
     private String name;
     private Role role;
@@ -37,8 +40,8 @@ public class User {
     }
 
     public void sendMessage(String content, ChatbotSession session) {
-            Message message = new Message(content, SenderType.USER);
-            session.logMessage(message);
+            Messages messages = new Messages(content, SenderType.USER);
+            session.logMessage(messages);
             System.out.println("User sent: " + content);
         }
 

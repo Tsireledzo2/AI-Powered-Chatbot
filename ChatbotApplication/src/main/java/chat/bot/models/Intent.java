@@ -1,13 +1,20 @@
 package chat.bot.models;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
+@Entity
 public class Intent {
+    @Id
     private UUID intentId;
     private String name;
     private float confidence;
+    @OneToMany(mappedBy = "patternId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ResponsePattern> patterns = new ArrayList<>();
 
     public Intent() {
