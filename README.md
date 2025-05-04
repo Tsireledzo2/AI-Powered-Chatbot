@@ -25,6 +25,7 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [Domain_Model_and_BusinessRules.md](./Domain_Model_and_BusinessRules.md)
 - [Reflection_Assignment9.md](./Reflection_Assignment9.md)
 - [CoverageReport.md](./CoverageReport.md)
+- [API_Documentation.md](./API_Documentation.md)
 
 # Justification of  generic repository interface
 ## Why use a generic Repository interface?
