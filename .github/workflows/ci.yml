@@ -33,5 +33,5 @@ jobs:
 
       - name: Build and run tests with Maven
         run: |
-          cd Chatbot
+          cd ChatbotApplication
           mvn clean verify
