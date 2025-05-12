@@ -3,10 +3,11 @@ name: CI/CD Pipeline for Chatbot
 on:
   push:
     branches:
-      - '**'  
+      - '**'
   pull_request:
     branches:
-      - master  
+      - master
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -38,7 +39,8 @@ jobs:
   release-artifact:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'  
+    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/master'
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,9 +56,15 @@ jobs:
           cd ChatbotApplication
           mvn clean package
 
+      - name: Create a Git tag
+        run: |
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"  # Creating a tag based on timestamp (you can adjust this)
+          git tag $TAG_NAME
+          git push origin $TAG_NAME  # Push the tag to GitHub
+
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: ChatbotApplication/target/*.jar  
+          files: ChatbotApplication/target/*.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
