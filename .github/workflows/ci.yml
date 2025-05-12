@@ -60,7 +60,7 @@ jobs:
         run: |
           TAG_NAME="v$(date +'%Y%m%d%H%M%S')"  # Creating a tag based on timestamp (you can adjust this)
           git tag $TAG_NAME
-          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git  # Use the token for authentication
+          git remote set-url origin https://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@github.com/${{ github.repository }}.git
           git push origin $TAG_NAME  # Push the tag to GitHub
 
       - name: Upload JAR to GitHub Release
