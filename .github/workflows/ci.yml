@@ -3,10 +3,10 @@ name: CI/CD Pipeline for Chatbot
 on:
   push:
     branches:
-      - '**'  
+      - '**'  # Trigger on all branches
   pull_request:
     branches:
-      - master  
+      - master  # Trigger on PRs targeting master
 
 jobs:
   build-and-test:
@@ -39,7 +39,8 @@ jobs:
   release-artifact:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push' 
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'  # Trigger on push to master only
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -59,6 +60,7 @@ jobs:
         run: |
           TAG_NAME="v$(date +'%Y%m%d%H%M%S')"  # Creating a tag based on timestamp (you can adjust this)
           git tag $TAG_NAME
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git  # Use the token for authentication
           git push origin $TAG_NAME  # Push the tag to GitHub
 
       - name: Upload JAR to GitHub Release
