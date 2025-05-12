@@ -66,6 +66,60 @@ The system is designed so that new storage options (like databases or filesystem
 
 ```java
 UserRepository repo = RepositoryFactory.getUserRepository("DATABASE");
+```
+
+## How to Run Tests Locally
+
+### Prerequisites
+Ensure that you have the following installed:
+- **Java 17** or later
+- **Maven**
+
+### Running Tests with Maven
+
+1. Clone the repository to your local machine:
+
+   ```bash
+   git clone https://github.com/Tsireledzo2/AI-Powered-Chatbot.git
+   cd AI-Powered-Chatbot
+``
+  ##  How the CI/CD Pipeline Works
+The project uses GitHub Actions to automate the Continuous Integration and Continuous Deployment (CI/CD) process. Here's a breakdown of how the CI/CD pipeline is set up:
+
+### CI Workflow
+The CI workflow is triggered on:
+
+Push events: This triggers the pipeline whenever code is pushed to any branch.
+
+Pull request events: This triggers the pipeline when a pull request is made targeting the master branch.
+
+Steps:
+Checkout the code: The code from the repository is checked out to the runner.
+
+Setup Java environment: The runner is configured to use Java 17.
+
+Cache dependencies: Maven dependencies are cached to speed up the build process.
+
+Build and run tests: The mvn clean verify command is executed to build the project and run the tests.
+
+If all tests pass, the pipeline continues to the next stage.
+
+CD Workflow
+The CD workflow is triggered only when a commit is pushed to the master branch.
+
+Steps:
+Checkout the code: Similar to the CI step, the code is checked out.
+
+Setup Java environment: The runner is set up with Java 17.
+
+Build the JAR file: The application is packaged into a JAR file using Maven.
+
+Create a version tag: A new version tag is created based on the current timestamp (e.g., v20230512153000).
+
+Push the tag to GitHub: The tag is pushed to GitHub to mark the new release version.
+
+Upload the JAR to GitHub Release: The generated JAR file is uploaded to GitHub Releases, making it available for download.
+
 
 
 
