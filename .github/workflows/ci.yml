@@ -3,10 +3,14 @@ name: CI/CD Pipeline for Chatbot
 on:
   push:
     branches:
-      - '**'  # Trigger on all branches
+      - '**'
   pull_request:
     branches:
-      - master  # Trigger on PRs targeting master
+      - master
+  workflow_run:
+    workflows: ["CI/CD Pipeline for Chatbot"]
+    types:
+      - completed
 
 jobs:
   build-and-test:
@@ -39,7 +43,7 @@ jobs:
   release-artifact:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'  # Trigger on push to master only
+    if: github.ref == 'refs/heads/master'
 
     steps:
       - name: Checkout code
@@ -56,16 +60,19 @@ jobs:
           cd ChatbotApplication
           mvn clean package
 
-      - name: Create a Git tag
+      - name: Create and push a tag
         run: |
-          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"  # Creating a tag based on timestamp (you can adjust this)
+          TAG_NAME="v$(date +'%Y%m%d%H%M%S')"  # Creating a tag based on timestamp
           git tag $TAG_NAME
-          git remote set-url origin https://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@github.com/${{ github.repository }}.git
+          git remote set-url origin https://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@github.com/Tsireledzo2/AI-Powered-Chatbot.git
           git push origin $TAG_NAME  # Push the tag to GitHub
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
+          JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.15-6/x64
 
       - name: Upload JAR to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: ChatbotApplication/target/*.jar
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: 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  # Direct token for release upload
