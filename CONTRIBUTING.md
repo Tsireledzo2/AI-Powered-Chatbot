@@ -42,3 +42,32 @@ Ensure all tests pass before submitting.
 
 Use meaningful test names.
 
+## 📌 Picking Issues & Submitting Pull Requests
+🧩 Step-by-Step
+- Fork this repository.
+
+- Pick an issue labeled good-first-issue.
+
+- Create a feature branch:
+- Write your code and tests.
+
+- Commit your changes:
+
+- Push to your fork and submit a Pull Request (PR):
+
+- Provide a clear description.
+
+- Reference the related issue (e.g., Closes #42).
+
+## 🏷️ Tag Issues for Contributors
+To encourage new contributors, we maintain labels for easier navigation:
+
+🎯 Good First Issues
+These are simple tasks great for newcomers:
+
+ #16 - Create Services for the projects
+
+💡 Feature Requests
+Bigger enhancements we’d love your help with:
+
+ #1 - Add chatbot session history endpoint
