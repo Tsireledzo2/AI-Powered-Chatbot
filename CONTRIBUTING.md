@@ -27,4 +27,18 @@ Using Maven: ```mvn clean install```
 4. Access Swagger UI:
 Navigate to: http://localhost:8080/swagger-ui.html
 
+## 🧪 Coding Standards
+✅ Linting
+Follow Java naming conventions and best practices.
+
+Use your IDE's formatter (Ctrl+Alt+L in IntelliJ).
+
+Avoid unused imports and code duplication.
+
+## 🧪 Testing
+Write unit tests using JUnit 5.
+
+Ensure all tests pass before submitting.
+
+Use meaningful test names.
 
