@@ -1,5 +1,31 @@
 # AI-Powered-Chatbot
-# Getting Started
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Java 17+
+- Maven 3.8+
+- PostgreSQL or H2 (optional for local dev)
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/ai-powered-chatbot.git
+cd ai-powered-chatbot
+```
+## 💡 Features for Contribution
+| Feature                                | Status      | Type              |
+| -------------------------------------- | ----------- | ----------------- |
+| Redis Caching for Responses            | Planned     | Performance       |
+| JWT Authentication                     | Planned     | Security          |
+| NLP Integration (OpenAI, Hugging Face) | Planned     | AI Enhancement    |
+| Chat History by User                   | In Progress | Data Management   |
+| WebSocket Live Chat                    | Planned     | Real-time Feature |
+| Swagger + OpenAPI Docs                 | Done        | Documentation     |
+
 
 ## Description
 This project is aimed at developing an AI-powered chatbot system designed to assist users with a variety of tasks using natural language processing.
