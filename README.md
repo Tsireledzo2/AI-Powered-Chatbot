@@ -1,4 +1,5 @@
 # AI-Powered-Chatbot
+# Getting Started
 
 ## Description
 This project is aimed at developing an AI-powered chatbot system designed to assist users with a variety of tasks using natural language processing.
@@ -27,26 +28,26 @@ This project is aimed at developing an AI-powered chatbot system designed to ass
 - [CoverageReport.md](./CoverageReport.md)
 - [API_Documentation.md](./API_Documentation.md)
 
-# Justification of  generic repository interface
-## Why use a generic Repository interface?
+## Justification of  generic repository interface
+### Why use a generic Repository interface?
 
 We used a generic `Repository<T, ID>` interface to define standard CRUD operations for all entities like `User`, `Intent`, `Chatbot`, etc.  
 This avoids code duplication, promotes reusability, and ensures consistency across the project.
 
 Entity-specific repositories (such as `UserRepository`, `IntentRepository`) extend the generic interface by specifying the entity type and its ID type (`UUID`).
 
-# Repository Abstraction Mechanism
+## Repository Abstraction Mechanism
 
 We chose the **Factory Pattern** to decouple the repository layer from specific storage mechanisms.
 
 Instead of hard-coding the storage backend, our services can now request a repository from the `RepositoryFactory`, specifying the desired storage type (e.g., "MEMORY", "DATABASE").
 
-## Why Factory over Dependency Injection (DI)?
+### Why Factory over Dependency Injection (DI)?
 - Factory keeps the project lightweight without needing a DI framework like Spring.
 - We can easily extend the factory in the future to support new backends (e.g., `PostgresUserRepository` or `MongoDBChatbotSessionRepository`).
 - It keeps construction logic centralized in one place, avoiding duplicate `new` calls across services.
 
-## Example Usage
+### Example Usage
 
 `java`
 `UserRepository userRepo = RepositoryFactory.getUserRepository("MEMORY");`
@@ -54,7 +55,7 @@ Instead of hard-coding the storage backend, our services can now request a repos
 
 `We also provided in-memory repository implementations to allow easy testing and decoupling from any specific database technology.`
 
-## Future Proofing
+### Future Proofing
 
 The system is designed so that new storage options (like databases or filesystem storage) can be added easily.
 
@@ -62,20 +63,20 @@ The system is designed so that new storage options (like databases or filesystem
 - We added stub classes like `DatabaseUserRepository`, which can later connect to a real database (e.g., MySQL, PostgreSQL).
 - The `RepositoryFactory` allows selecting the storage backend at runtime.
 
-### Example
+#### Example
 
 ```java
 UserRepository repo = RepositoryFactory.getUserRepository("DATABASE");
 ```
 
-## How to Run Tests Locally
+### How to Run Tests Locally
 
-### Prerequisites
+#### Prerequisites
 Ensure that you have the following installed:
 - **Java 17** or later
 - **Maven**
 
-### Running Tests with Maven
+#### Running Tests with Maven
 
 1. Clone the repository to your local machine:
 
@@ -83,10 +84,10 @@ Ensure that you have the following installed:
    git clone https://github.com/Tsireledzo2/AI-Powered-Chatbot.git
    cd AI-Powered-Chatbot
 ``
-  ##  How the CI/CD Pipeline Works
+  ###  How the CI/CD Pipeline Works
 The project uses GitHub Actions to automate the Continuous Integration and Continuous Deployment (CI/CD) process. Here's a breakdown of how the CI/CD pipeline is set up:
 
-### CI Workflow
+#### CI Workflow
 The CI workflow is triggered on:
 
 Push events: This triggers the pipeline whenever code is pushed to any branch.
